@@ -12,7 +12,9 @@
 		1444D6A21C865CA0007E8D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444D6A11C865CA0007E8D45 /* Assets.xcassets */; };
 		1444D6A51C865CA0007E8D45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1444D6A31C865CA0007E8D45 /* LaunchScreen.storyboard */; };
 		1444D6AE1C8660FC007E8D45 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444D6AD1C8660FC007E8D45 /* LoginViewController.swift */; };
+		1445FEB31C87FFBC00461A92 /* CompositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445FEB21C87FFBC00461A92 /* CompositionViewController.swift */; };
 		1475BFD41C877E5D006BD65B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BFD31C877E5D006BD65B /* HomeViewController.swift */; };
+		1475BFDA1C87D02A006BD65B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BFD91C87D02A006BD65B /* Post.swift */; };
 		1F9C452A3B52E34EA540E5B1 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5995049644F83F0270005468 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +26,9 @@
 		1444D6A41C865CA0007E8D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1444D6A61C865CA0007E8D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1444D6AD1C8660FC007E8D45 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1445FEB21C87FFBC00461A92 /* CompositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionViewController.swift; sourceTree = "<group>"; };
 		1475BFD31C877E5D006BD65B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1475BFD91C87D02A006BD65B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5995049644F83F0270005468 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABEEBAD223E975FBFB382F06 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		EBF9021D22A0AB026F8D67B7 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 		1444D6991C865CA0007E8D45 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				1475BFD81C87D010006BD65B /* Models */,
 				1444D6AC1C8660C0007E8D45 /* ViewControllers */,
 				1444D69A1C865CA0007E8D45 /* AppDelegate.swift */,
 				1444D69E1C865CA0007E8D45 /* Main.storyboard */,
@@ -78,8 +83,17 @@
 			children = (
 				1444D6AD1C8660FC007E8D45 /* LoginViewController.swift */,
 				1475BFD31C877E5D006BD65B /* HomeViewController.swift */,
+				1445FEB21C87FFBC00461A92 /* CompositionViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1475BFD81C87D010006BD65B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1475BFD91C87D02A006BD65B /* Post.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		2F1AE103C1ECB794917B706E /* Pods */ = {
@@ -224,7 +238,9 @@
 			files = (
 				1444D6AE1C8660FC007E8D45 /* LoginViewController.swift in Sources */,
 				1444D69B1C865CA0007E8D45 /* AppDelegate.swift in Sources */,
+				1445FEB31C87FFBC00461A92 /* CompositionViewController.swift in Sources */,
 				1475BFD41C877E5D006BD65B /* HomeViewController.swift in Sources */,
+				1475BFDA1C87D02A006BD65B /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

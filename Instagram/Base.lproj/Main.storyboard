@@ -73,11 +73,69 @@
                                 <action selector="onLogoutButtonTouchUp:" destination="oQd-3u-jdt" id="nPn-G2-mXq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Compose" id="peb-Dj-IlZ">
+                            <connections>
+                                <segue destination="d2g-JG-xbb" kind="modal" id="EQj-gz-y6z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6a6-eN-kVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1200" y="300"/>
+        </scene>
+        <!--Composition View Controller-->
+        <scene sceneID="A25-Al-P2h">
+            <objects>
+                <viewController id="AWa-h1-EXJ" customClass="CompositionViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j93-oB-VtU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vnu-Gh-mds"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b9x-1Q-cI9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVY-vR-vbA">
+                                <rect key="frame" x="0.0" y="130" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ZOI-Pd-IN3" appends="YES" id="U5C-XK-dvK"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9eN-2c-b6w">
+                                <rect key="frame" x="20" y="80" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yXW-bv-N95">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="B4P-Zm-XFz">
+                            <connections>
+                                <action selector="onCancel:" destination="AWa-h1-EXJ" id="UwZ-o0-bb1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="npx-0Z-3hd">
+                            <connections>
+                                <action selector="onSubmit:" destination="AWa-h1-EXJ" id="qNF-v2-2CJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="captionField" destination="9eN-2c-b6w" id="npL-wp-Mz8"/>
+                        <outlet property="postImageView" destination="lVY-vR-vbA" id="jLR-9S-OsQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7yr-S4-GOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZOI-Pd-IN3">
+                    <connections>
+                        <action selector="onPostImageViewTap:" destination="AWa-h1-EXJ" id="qLR-Ps-bMZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2200" y="300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gbs-N6-cx0">
@@ -96,6 +154,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHX-9T-CRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="700" y="300"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M10-Yk-cPY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2g-JG-xbb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q2l-eU-Iou">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AWa-h1-EXJ" kind="relationship" relationship="rootViewController" id="ZIM-cG-YRG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ns-XE-5iw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="300"/>
         </scene>
     </scenes>
 </document>
