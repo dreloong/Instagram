@@ -13,6 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(
         application: UIApplication,
@@ -25,7 +26,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 config.server = "https://dreloong-instagram.herokuapp.com/parse"
             })
         )
+
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: "userDidLogout",
+            name: userDidLogoutNotification,
+            object: nil
+        )
+
+        if PFUser.currentUser() != nil {
+            window?.rootViewController =
+                storyboard.instantiateViewControllerWithIdentifier("HomeNavigationViewController")
+                as UIViewController
+        }
+
         return true
+    }
+
+    func userDidLogout() {
+        window?.rootViewController = storyboard.instantiateInitialViewController()
     }
 
 }
