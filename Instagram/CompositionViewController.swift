@@ -57,20 +57,6 @@ class CompositionViewController: UIViewController {
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
 
-    // MARK: - Helpers
-
-    func resizeImage(image: UIImage, newSize: CGSize) -> UIImage {
-        let resizedImageView = UIImageView(frame: CGRectMake(0, 0, newSize.width, newSize.height))
-        resizedImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        resizedImageView.image = image
-
-        UIGraphicsBeginImageContext(resizedImageView.frame.size)
-        resizedImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-
 }
 
 extension CompositionViewController: UINavigationControllerDelegate {
@@ -84,7 +70,7 @@ extension CompositionViewController: UIImagePickerControllerDelegate {
         didFinishPickingMediaWithInfo info: [String : AnyObject]
     ) {
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let resizedImage = resizeImage(
+        let resizedImage = Util.resizeImage(
             originalImage,
             newSize: CGSize(width: postImageView.frame.width, height: postImageView.frame.height)
         )

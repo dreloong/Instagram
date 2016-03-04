@@ -19,18 +19,9 @@ class Post {
         post["caption"] = caption
         post["commentsCount"] = 0
         post["likesCount"] = 0
-        post["media"] = getPFFileFromImage(image)
+        post["media"] = Util.getPFFileFromImage(image)
 
         post.saveInBackgroundWithBlock(completion)
-    }
-
-    class func getPFFileFromImage(image: UIImage?) -> PFFile? {
-        if let image = image {
-            if let imageData = UIImagePNGRepresentation(image) {
-                return PFFile(name: "image.png", data: imageData)
-            }
-        }
-        return nil
     }
 
 }
