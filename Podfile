@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'Instagram' do
-  pod 'Parse'
+  pod 'MBProgressHUD'
   pod 'NSDateMinimalTimeAgo'
+  pod 'Parse'
 end
-

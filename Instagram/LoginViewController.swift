@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 import Parse
 
 class LoginViewController: UIViewController {
@@ -25,6 +26,9 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func onLoginButtonTouchUp(sender: AnyObject) {
+        let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHud.labelFont = UIFont.systemFontOfSize(14)
+
         let username = usernameField.text ?? ""
         let password = passwordField.text ?? ""
 
@@ -35,12 +39,16 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 self.performSegueWithIdentifier("login", sender: nil)
             }
         }
     }
 
     @IBAction func onSignupButtonTouchUp(sender: AnyObject) {
+        let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHud.labelFont = UIFont.systemFontOfSize(14)
+
         let newUser = PFUser()
         newUser.username = usernameField.text
         newUser.password = passwordField.text
@@ -49,6 +57,7 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 self.performSegueWithIdentifier("login", sender: nil)
             }
         }

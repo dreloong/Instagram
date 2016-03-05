@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class CompositionViewController: UIViewController {
 
@@ -31,6 +32,10 @@ class CompositionViewController: UIViewController {
     }
 
     @IBAction func onSubmit(sender: AnyObject) {
+        let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHud.labelText = "Uploading"
+        progressHud.labelFont = UIFont.systemFontOfSize(14)
+
         if postImageView.image != nil && !captionField.text!.isEmpty {
             Post.postUserImage(
                 postImageView.image,
@@ -39,6 +44,7 @@ class CompositionViewController: UIViewController {
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
+                        MBProgressHUD.hideHUDForView(self.view, animated: true)
                         self.captionField.resignFirstResponder()
                         self.dismissViewControllerAnimated(true, completion: nil)
                     }

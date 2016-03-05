@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 import Parse
 
 let userDidLogoutNotification = "userDidLogoutNotification"
@@ -34,8 +35,16 @@ class HomeViewController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: .ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
+    }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHud.labelText = "Loading"
+        progressHud.labelFont = UIFont.systemFontOfSize(14)
         fetchPostsWithLimit(20)
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

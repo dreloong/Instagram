@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 import Parse
 
 class ProfileViewController: UIViewController {
@@ -46,7 +47,11 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHud.labelText = "Loading"
+        progressHud.labelFont = UIFont.systemFontOfSize(14)
         fetchPosts()
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +97,11 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
         picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]
     ) {
+        dismissViewControllerAnimated(true, completion: nil)
+        let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        progressHud.labelText = "Uploading"
+        progressHud.labelFont = UIFont.systemFontOfSize(14)
+
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let resizedImage = Util.resizeImage(
             originalImage,
@@ -106,8 +116,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
             if let error = error {
                 print(error.localizedDescription)
             } else {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 self.profileImageView.image = resizedImage
-                self.dismissViewControllerAnimated(true, completion: nil)
             }
         })
     }
