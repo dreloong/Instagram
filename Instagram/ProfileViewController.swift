@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
 
     var posts = [PFObject]()
+    var user: PFUser! = PFUser.currentUser()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,12 @@ class ProfileViewController: UIViewController {
         collectionView.delegate = self
         collectionView.backgroundColor = UIColor.whiteColor()
 
-        usernameLabel.text = PFUser.currentUser()?.username
+        usernameLabel.text = user.username
 
-        profileImageView.userInteractionEnabled = true
+        profileImageView.userInteractionEnabled = user.username == PFUser.currentUser()?.username
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
         profileImageView.clipsToBounds = true
-        if let imageFile = PFUser.currentUser()?.objectForKey("imageFile") as? PFFile {
+        if let imageFile = user.objectForKey("imageFile") as? PFFile {
             imageFile.getDataInBackgroundWithBlock({ (data: NSData?, error: NSError?) -> Void in
                 if let data = data {
                     self.profileImageView.image = UIImage(data: data)
@@ -66,7 +67,7 @@ class ProfileViewController: UIViewController {
 
     func fetchPosts() {
         let query = PFQuery(className: "Post")
-        query.whereKey("author", equalTo: PFUser.currentUser()!)
+        query.whereKey("author", equalTo: user)
         query.orderByDescending("createdAt")
         query.includeKey("author")
 
@@ -79,7 +80,6 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension ProfileViewController: UINavigationControllerDelegate {
@@ -101,7 +101,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
             )
         )
 
-        let user = PFUser.currentUser()!
         user["imageFile"] = Util.getPFFileFromImage(resizedImage)
         user.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
             if let error = error {
@@ -112,7 +111,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
             }
         })
     }
-
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
@@ -137,7 +135,6 @@ extension ProfileViewController: UICollectionViewDataSource {
 
         return cell
     }
-
 }
 
 extension ProfileViewController: UICollectionViewDelegate {

@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
     var posts = [PFObject]()
     var refreshControl: UIRefreshControl!
 
+    var targetUser: PFUser?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +40,15 @@ class HomeViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    // MARK: - Navigation
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "profile" {
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.user = targetUser
+        }
     }
 
     // MARK: - Actions
@@ -72,7 +83,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -100,18 +110,38 @@ extension HomeViewController: UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(headerViewIdentifier)!
+        let headerView =
+            tableView.dequeueReusableHeaderFooterViewWithIdentifier(headerViewIdentifier)!
             as! PostTableViewHeaderFooterView
-        header.post = posts[section]
-        return header
+        headerView.delegate = self
+        headerView.post = posts[section]
+        return headerView
     }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-
 }
 
 extension HomeViewController: UITableViewDelegate {
 
+}
+
+extension HomeViewController: PostTableViewHeaderFooterViewDelegate {
+
+    func postTableViewHeaderFooterView(
+        postTableViewHeaderFooterView: PostTableViewHeaderFooterView,
+        didTapProfileImageViewOfPost post: PFObject
+    ) {
+        targetUser = post.objectForKey("author") as? PFUser
+        performSegueWithIdentifier("profile", sender: self)
+    }
+
+    func postTableViewHeaderFooterView(
+        postTableViewHeaderFooterView: PostTableViewHeaderFooterView,
+        didTapUsernameLabelOfPost post: PFObject
+    ) {
+        targetUser = post.objectForKey("author") as? PFUser
+        performSegueWithIdentifier("profile", sender: self)
+    }
 }

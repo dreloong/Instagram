@@ -56,7 +56,6 @@ class CompositionViewController: UIViewController {
             : UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
-
 }
 
 extension CompositionViewController: UINavigationControllerDelegate {
@@ -77,5 +76,4 @@ extension CompositionViewController: UIImagePickerControllerDelegate {
         postImageView.image = resizedImage
         dismissViewControllerAnimated(true, completion: nil)
     }
-
 }

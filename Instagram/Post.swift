@@ -23,5 +23,4 @@ class Post {
 
         post.saveInBackgroundWithBlock(completion)
     }
-
 }

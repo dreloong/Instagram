@@ -46,5 +46,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func userDidLogout() {
         window?.rootViewController = storyboard.instantiateInitialViewController()
     }
-
 }
