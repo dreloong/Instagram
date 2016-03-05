@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140C6B171C8B8DB700F92A17 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140C6B161C8B8DB700F92A17 /* SignupViewController.swift */; };
 		1444D69B1C865CA0007E8D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1444D69A1C865CA0007E8D45 /* AppDelegate.swift */; };
 		1444D6A01C865CA0007E8D45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1444D69E1C865CA0007E8D45 /* Main.storyboard */; };
 		1444D6A21C865CA0007E8D45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1444D6A11C865CA0007E8D45 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140C6B161C8B8DB700F92A17 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		1444D6971C865CA0007E8D45 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1444D69A1C865CA0007E8D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1444D69F1C865CA0007E8D45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				1475BFD31C877E5D006BD65B /* HomeViewController.swift */,
 				1445FEB21C87FFBC00461A92 /* CompositionViewController.swift */,
 				1445FEB71C896B1E00461A92 /* ProfileViewController.swift */,
+				140C6B161C8B8DB700F92A17 /* SignupViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				1444D6AE1C8660FC007E8D45 /* LoginViewController.swift in Sources */,
 				1444D69B1C865CA0007E8D45 /* AppDelegate.swift in Sources */,
+				140C6B171C8B8DB700F92A17 /* SignupViewController.swift in Sources */,
 				1445FEB31C87FFBC00461A92 /* CompositionViewController.swift in Sources */,
 				1445FEBA1C8A226F00461A92 /* Util.swift in Sources */,
 				1475BFD41C877E5D006BD65B /* HomeViewController.swift in Sources */,

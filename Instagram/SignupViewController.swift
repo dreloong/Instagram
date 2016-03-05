@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  SignupViewController.swift
 //  Instagram
 //
-//  Created by Xiaofei Long on 3/1/16.
+//  Created by Xiaofei Long on 3/5/16.
 //  Copyright © 2016 dreloong. All rights reserved.
 //
 
@@ -10,8 +10,9 @@ import UIKit
 import MBProgressHUD
 import Parse
 
-class LoginViewController: UIViewController {
+class SignupViewController: UIViewController {
 
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
 
@@ -25,22 +26,21 @@ class LoginViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func onLoginButtonTouchUp(sender: AnyObject) {
+    @IBAction func onSignupButtonTouchUp(sender: AnyObject) {
         let progressHud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         progressHud.labelFont = UIFont.systemFontOfSize(14)
 
-        let username = usernameField.text ?? ""
-        let password = passwordField.text ?? ""
+        let newUser = PFUser()
+        newUser.username = usernameField.text
+        newUser.password = passwordField.text
+        newUser.email = emailField.text
 
-        PFUser.logInWithUsernameInBackground(
-            username,
-            password: password
-        ) { (user: PFUser?, error: NSError?) -> Void in
+        newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
-                self.performSegueWithIdentifier("login", sender: nil)
+                self.performSegueWithIdentifier("signup", sender: nil)
             }
         }
     }
