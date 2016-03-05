@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerClass(
-            UITableViewHeaderFooterView.self,
+            PostTableViewHeaderFooterView.self,
             forHeaderFooterViewReuseIdentifier: headerViewIdentifier
         )
 
@@ -101,9 +101,8 @@ extension HomeViewController: UITableViewDataSource {
 
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(headerViewIdentifier)!
-            as UITableViewHeaderFooterView
-        let author = posts[section].objectForKey("author") as! PFUser
-        header.textLabel?.text = author.username
+            as! PostTableViewHeaderFooterView
+        header.post = posts[section]
         return header
     }
 
