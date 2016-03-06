@@ -184,11 +184,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tWf-94-N3w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eIy-pi-agB">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="365" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hAb-vp-ucx">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Post Table View Cell" rowHeight="365" id="RVG-IF-HUu" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
@@ -258,7 +258,7 @@
                         <viewControllerLayoutGuide type="bottom" id="f5m-Xm-4SJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LE5-jv-cZc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2M-kb-u0L">
@@ -401,11 +401,13 @@
             </objects>
             <point key="canvasLocation" x="2700" y="-200"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="gbs-N6-cx0">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="zU7-8H-yxB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="Q7g-h3-FS5"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="Q7g-h3-FS5">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="mUe-0c-dSw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -443,11 +445,13 @@
             </objects>
             <point key="canvasLocation" x="2200" y="-200"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="Jnz-X6-v8N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xBd-jc-D87" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="evL-h7-NG0"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile" id="evL-h7-NG0">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="yDJ-Xm-cjG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -469,9 +473,10 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Kxb-EF-CeX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="EiT-KU-csH">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="EiT-KU-csH">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="zU7-8H-yxB" kind="relationship" relationship="viewControllers" id="P18-UK-e8l"/>
@@ -483,8 +488,12 @@
             <point key="canvasLocation" x="700" y="300"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home" width="32" height="32"/>
+        <image name="Profile" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="C5t-CM-f0L"/>
-        <segue reference="vdQ-uZ-GeI"/>
+        <segue reference="RHd-Fm-5yJ"/>
     </inferredMetricsTieBreakers>
 </document>
