@@ -11,14 +11,11 @@ import Parse
 
 class PostTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var likesCountLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
 
     var post: PFObject! {
         didSet {
-            captionLabel.text = post.objectForKey("caption") as? String
-
             let likesCount = post.objectForKey("likesCount") as! Int
             likesCountLabel.text = "Likes: \(likesCount)"
 

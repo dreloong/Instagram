@@ -184,15 +184,15 @@
                         <viewControllerLayoutGuide type="bottom" id="tWf-94-N3w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eIy-pi-agB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="365" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hAb-vp-ucx">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="365" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hAb-vp-ucx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Post Table View Cell" rowHeight="365" id="RVG-IF-HUu" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="365"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="365"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RVG-IF-HUu" id="rfS-bX-8rp">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="364"/>
@@ -201,12 +201,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TwG-pm-hgx">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQD-s8-M72">
-                                                    <rect key="frame" x="170" y="330" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbF-7q-9wg">
                                                     <rect key="frame" x="12" y="330" width="100" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -216,7 +210,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="captionLabel" destination="gQD-s8-M72" id="V3L-y8-e5Z"/>
                                             <outlet property="likesCountLabel" destination="tbF-7q-9wg" id="xaY-Io-hyB"/>
                                             <outlet property="postImageView" destination="TwG-pm-hgx" id="NrP-om-nnz"/>
                                         </connections>
@@ -225,15 +218,23 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hAb-vp-ucx" firstAttribute="top" secondItem="eIy-pi-agB" secondAttribute="top" id="bLF-DQ-iS3"/>
+                            <constraint firstAttribute="bottom" secondItem="hAb-vp-ucx" secondAttribute="bottom" id="dIo-fn-TXc"/>
+                            <constraint firstAttribute="trailing" secondItem="hAb-vp-ucx" secondAttribute="trailing" id="z09-5B-ZFh"/>
+                            <constraint firstItem="hAb-vp-ucx" firstAttribute="leading" secondItem="eIy-pi-agB" secondAttribute="leading" id="zuN-qA-fnX"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram" id="184-Hc-YyN">
                         <barButtonItem key="backBarButtonItem" title=" " id="cAh-gx-SY5"/>
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="Jmf-zs-DDW">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onLogoutButtonTouchUp:" destination="oQd-3u-jdt" id="nPn-G2-mXq"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="peb-Dj-IlZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="d2g-JG-xbb" kind="modal" id="EQj-gz-y6z"/>
                             </connections>
@@ -257,18 +258,24 @@
                         <viewControllerLayoutGuide type="bottom" id="f5m-Xm-4SJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LE5-jv-cZc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2M-kb-u0L">
-                                <rect key="frame" x="12" y="76" width="80" height="80"/>
+                                <rect key="frame" x="12" y="12" width="80" height="80"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mJE-3z-Bta" appends="YES" id="JJo-uy-aTM"/>
                                 </connections>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnx-MJ-1V4">
+                                <rect key="frame" x="112" y="12" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aro-U9-wt7">
-                                <rect key="frame" x="0.0" y="190" width="320" height="378"/>
+                                <rect key="frame" x="0.0" y="126" width="320" height="378"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="iie-3x-Gih">
                                     <size key="itemSize" width="106" height="106"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -295,12 +302,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fnx-MJ-1V4">
-                                <rect key="frame" x="112" y="76" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -320,7 +321,7 @@
             </objects>
             <point key="canvasLocation" x="1700" y="800"/>
         </scene>
-        <!--Composition View Controller-->
+        <!--Compose-->
         <scene sceneID="A25-Al-P2h">
             <objects>
                 <viewController id="AWa-h1-EXJ" customClass="CompositionViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -329,31 +330,33 @@
                         <viewControllerLayoutGuide type="bottom" id="Vnu-Gh-mds"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b9x-1Q-cI9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVY-vR-vbA">
-                                <rect key="frame" x="0.0" y="130" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="320"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ZOI-Pd-IN3" appends="YES" id="U5C-XK-dvK"/>
                                 </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9eN-2c-b6w">
-                                <rect key="frame" x="20" y="80" width="280" height="30"/>
+                                <rect key="frame" x="20" y="20" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yXW-bv-N95">
+                    <navigationItem key="navigationItem" title="Compose" id="yXW-bv-N95">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="B4P-Zm-XFz">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onCancel:" destination="AWa-h1-EXJ" id="UwZ-o0-bb1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="npx-0Z-3hd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onSubmit:" destination="AWa-h1-EXJ" id="qNF-v2-2CJ"/>
                             </connections>
@@ -379,9 +382,11 @@
                 <navigationController storyboardIdentifier="HomeNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="zU7-8H-yxB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="Q7g-h3-FS5"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mUe-0c-dSw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="mUe-0c-dSw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.070588235289999995" green="0.33725490200000002" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -392,15 +397,17 @@
             </objects>
             <point key="canvasLocation" x="1200" y="-200"/>
         </scene>
-        <!--Item-->
+        <!--Compose-->
         <scene sceneID="M10-Yk-cPY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2g-JG-xbb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rJb-dK-1bg"/>
+                    <tabBarItem key="tabBarItem" title="Compose" id="rJb-dK-1bg"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q2l-eU-Iou">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="q2l-eU-Iou">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.070588235289999995" green="0.33725490200000002" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -417,9 +424,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xBd-jc-D87" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="evL-h7-NG0"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yDJ-Xm-cjG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="yDJ-Xm-cjG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.070588235289999995" green="0.33725490200000002" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
