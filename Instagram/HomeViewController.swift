@@ -27,6 +27,8 @@ class HomeViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 365
         tableView.registerClass(
             PostTableViewHeaderFooterView.self,
             forHeaderFooterViewReuseIdentifier: headerViewIdentifier
