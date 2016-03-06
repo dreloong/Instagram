@@ -14,9 +14,23 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var registrationDateLabel: UILabel!
+    @IBOutlet weak var postsCountLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
-    var posts = [PFObject]()
+    var posts = [PFObject]() {
+        didSet {
+            switch posts.count {
+            case 0:
+                postsCountLabel.text = "No post yet"
+            case 1:
+                postsCountLabel.text = "1 Post"
+            default:
+                postsCountLabel.text = "\(posts.count) Posts"
+            }
+        }
+    }
     var user: PFUser! = PFUser.currentUser()
 
     override func viewDidLoad() {
@@ -27,6 +41,11 @@ class ProfileViewController: UIViewController {
         collectionView.backgroundColor = UIColor.whiteColor()
 
         usernameLabel.text = user.username
+        emailLabel.text = "Email: \(user.email!)"
+
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        registrationDateLabel.text = "Member since: \(formatter.stringFromDate(user.createdAt!))"
 
         profileImageView.userInteractionEnabled = user.username == PFUser.currentUser()?.username
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
