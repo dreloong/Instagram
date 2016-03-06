@@ -18,6 +18,7 @@ class CompositionViewController: UIViewController {
         super.viewDidLoad()
 
         postImageView.userInteractionEnabled = true
+        postImageView.image = UIImage(named: "Square")
     }
 
     override func didReceiveMemoryWarning() {
